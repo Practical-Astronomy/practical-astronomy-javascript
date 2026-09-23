@@ -1,0 +1,81 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">AccuracyLevel</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>  2</span> </span><span class="WHIT">    </span><span class="NAME">Approximate</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Approximate'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>  3</span> </span><span class="WHIT">    </span><span class="NAME">Precise</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Precise'</span><span class="WHIT">
+<span class='line'>  4</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  5</span> 
+<span class='line'>  6</span> </span><span class="COMM">/**
+<span class='line'>  7</span>  * Angle measurement units
+<span class='line'>  8</span>  */</span><span class="WHIT">
+<span class='line'>  9</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">AngleMeasure</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 10</span> </span><span class="WHIT">    </span><span class="NAME">Degrees</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Degrees'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 11</span> </span><span class="WHIT">    </span><span class="NAME">Hours</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Hours'</span><span class="WHIT">
+<span class='line'> 12</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 13</span> 
+<span class='line'> 14</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">CoordinateType</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 15</span> </span><span class="WHIT">    </span><span class="NAME">True</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'True'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 16</span> </span><span class="WHIT">    </span><span class="NAME">Apparent</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Apparent'</span><span class="WHIT">
+<span class='line'> 17</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 18</span> 
+<span class='line'> 19</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">LunarEclipseOccurrence</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 20</span> </span><span class="WHIT">    </span><span class="NAME">None</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"No lunar eclipse"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 21</span> </span><span class="WHIT">    </span><span class="NAME">Possible</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"Lunar eclipse possible"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 22</span> </span><span class="WHIT">    </span><span class="NAME">Certain</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"Lunar eclipse certain"</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 24</span> 
+<span class='line'> 25</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">RiseSetCalcStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">    </span><span class="NAME">OK</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'OK'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">    </span><span class="NAME">ConversionWarning</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'GST to UT conversion warning'</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 29</span> 
+<span class='line'> 30</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">RiseSetStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">    </span><span class="NAME">OK</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'OK'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">    </span><span class="NAME">NeverRises</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'NeverRises'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="WHIT">    </span><span class="NAME">Circumpolar</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Circumpolar'</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 35</span> 
+<span class='line'> 36</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">SolarEclipseOccurrence</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">    </span><span class="NAME">None</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"No solar eclipse"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">    </span><span class="NAME">Possible</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"Solar eclipse possible"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="WHIT">    </span><span class="NAME">Certain</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"Solar eclipse certain"</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 41</span> 
+<span class='line'> 42</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">TwilightStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">    </span><span class="NAME">OK</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'OK'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">    </span><span class="NAME">AllNight</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Lasts all night'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">    </span><span class="NAME">TooFarBelowHorizon</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Sun too far below horizon'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">    </span><span class="NAME">ConversionWarning</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'GST to UT conversion warning'</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> 
+<span class='line'> 49</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">TwilightType</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">    </span><span class="NAME">Civil</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">6</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">    </span><span class="NAME">Nautical</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">12</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">    </span><span class="NAME">Astronomical</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">18</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 54</span> 
+<span class='line'> 55</span> </span><span class="COMM">/**
+<span class='line'> 56</span>  * Warning flags for calculation results
+<span class='line'> 57</span>  */</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">WarningFlag</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">    </span><span class="NAME">OK</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'OK'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="WHIT">    </span><span class="NAME">Warning</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'Warning'</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 62</span> 
+<span class='line'> 63</span> </span><span class="NAME">module.exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">    </span><span class="NAME">AccuracyLevel</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">    </span><span class="NAME">AngleMeasure</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">    </span><span class="NAME">CoordinateType</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">    </span><span class="NAME">LunarEclipseOccurrence</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">    </span><span class="NAME">RiseSetCalcStatus</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">    </span><span class="NAME">RiseSetStatus</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">    </span><span class="NAME">SolarEclipseOccurrence</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">    </span><span class="NAME">TwilightStatus</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">    </span><span class="NAME">TwilightType</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">    </span><span class="NAME">WarningFlag</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

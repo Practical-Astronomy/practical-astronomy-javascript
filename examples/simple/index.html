@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>PA Single-File Test</title>
+    </head>
+
+    <body>
+        <h2>Lunar Eclipse Circumstances</h2>
+        <h3>Observer Info</h3>
+        <p>
+            <label for="observedate">Date to check:</label>
+            <input type="date" id="observedate" name="observedate">
+            <br><br>
+            <input type="checkbox" id="dst" name="dst">
+            <label for="dst">Daylight savings?</label>
+            <br><br>
+            <label for="zonecorrect">Zone correction hours:</label>
+            <input type="number" id="zonecorrect" name="zonecorrect">
+        </p>
+
+        <button onclick="testPA()">Get Info</button>
+
+        <h3>Next Eclipse</h3>
+        <table>
+            <tr>
+                <td>Eclipse date:</td>
+                <td id="eclipseCertainDate"></td>
+            </tr>
+            <tr>
+                <td>Magnitude:</td>
+                <td id="eclipseMagnitude"></td>
+            </tr>
+        </table>
+
+        <h4>Universal Time</h4>
+        <p>
+        <table>
+            <tr>
+                <td>Start penumbral phase:</td>
+                <td id="eclipseStartPenumbral"></td>
+            </tr>
+            <tr>
+                <td>Start umbral phase:</td>
+                <td id="eclipseStartUmbral"></td>
+            </tr>
+            <tr>
+                <td>Start total phase:</td>
+                <td id="eclipseStartTotal"></td>
+            </tr>
+            <tr>
+                <td>Mid eclipse:</td>
+                <td id="eclipseMidEclipse"></td>
+            </tr>
+            <tr>
+                <td>End total phase:</td>
+                <td id="eclipseEndTotal"></td>
+            </tr>
+            <tr>
+                <td>End umbral phase:</td>
+                <td id="eclipseEndUmbral"></td>
+            </tr>
+            <tr>
+                <td>End penumbral phase:</td>
+                <td id="eclipseEndPenumbral"></td>
+            </tr>
+        </table>
+        <h4>Local Time</h4>
+        <p>
+        <table>
+            <tr>
+                <td>Start penumbral phase:</td>
+                <td id="eclipseStartPenumbralLocal"></td>
+            </tr>
+
+            <tr>
+                <td>Start umbral phase:</td>
+                <td id="eclipseStartUmbralLocal"></td>
+            </tr>
+            <tr>
+                <td>Start total phase:</td>
+                <td id="eclipseStartTotalLocal"></td>
+            </tr>
+            <tr>
+                <td>Mid eclipse:</td>
+                <td id="eclipseMidEclipseLocal"></td>
+            </tr>
+            <tr>
+                <td>End total phase:</td>
+                <td id="eclipseEndTotalLocal"></td>
+            </tr>
+            <tr>
+                <td>End umbral phase:</td>
+                <td id="eclipseEndUmbralLocal"></td>
+            </tr>
+            <tr>
+                <td>End penumbral phase:</td>
+                <td id="eclipseEndPenumbralLocal"></td>
+            </tr>
+        </table>
+        </p>
+
+        <script src="../../single_file/pa-all.min.js"></script>
+        <script src="custom.js"></script>
+    </body>
+
+</html>
